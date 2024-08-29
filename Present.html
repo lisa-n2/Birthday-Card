@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #F9E79F;
+            margin: 0;
+            perspective: 1000px;
+            overflow: hidden; /* Prevent scrollbars */
+            position: relative;
+        }
+        
+        .card {
+            width: 60%; /* Increase the width to allow text to spread out */
+            height: auto; /* Allow height to adjust based on content */
+            background-color: #800020; /* Burgundy/Crimson red */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px; /* Add padding for better readability */
+            font-size: 24px; /* Adjust font size for readability */
+            font-family: 'Brush Script MT', cursive; /* Cursive font */
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: transform 2s;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+
+        .card .front, .card .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            font-family: 'Brush Script MT', cursive; /* Cursive font */
+            font-weight: bold;
+            color: white;
+        }
+
+        .card .front {
+            background-color: #800020; /* Burgundy/Crimson red */
+            transform: rotateY(0deg);
+        }
+
+        .card .back {
+            background-color: #F9E79F; /* Match the background color */
+            color: #000; /* Black text for the back */
+            transform: rotateY(180deg); /* Rotate the back side to be hidden initially */
+        }
+
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            background-color: #FF69B4;
+            border-radius: 50%;
+            animation: floatUp 5s ease-in-out infinite;
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background-color: inherit;
+            transform: translateX(-50%);
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-300px); opacity: 0; }
+        }
+
+        /* Positioning the balloons */
+        .balloon.red {
+            right: 10px;
+            animation-delay: 0s;
+        }
+
+        .balloon.white {
+            right: 60px;
+            background-color: #FFF;
+            animation-delay: 1s;
+        }
+
+        .balloon.pink {
+            right: 110px;
+            background-color: #FFC0CB;
+            animation-delay: 2s;
+        }
+
+        .balloon.red.left {
+            left: 10px;
+            animation-delay: 0s;
+        }
+
+        .balloon.white.left {
+            left: 60px;
+            background-color: #FFF;
+            animation-delay: 1s;
+        }
+
+        .balloon.pink.left {
+            left: 110px;
+            background-color: #FFC0CB;
+            animation-delay: 2s;
+        }
+
+        .confetti {
+            position: absolute;
+            top: -50px; /* Start from above the screen */
+            width: 10px;
+            height: 20px;
+            background-color: yellow; /* Default to yellow */
+            animation: fallDown 3s ease-in-out infinite;
+        }
+
+        .confetti:nth-child(7) {
+            left: 20%;
+            background-color: yellow;
+            animation-delay: 0.5s;
+        }
+
+        .confetti:nth-child(8) {
+            left: 40%;
+            background-color: black;
+            animation-delay: 1s;
+        }
+
+        .confetti:nth-child(9) {
+            left: 60%;
+            background-color: white;
+            animation-delay: 1.5s;
+        }
+
+        .confetti:nth-child(10) {
+            left: 80%;
+            background-color: black;
+            animation-delay: 2s;
+        }
+
+        @keyframes fallDown {
+            0% { transform: translateY(-50px) rotate(0); opacity: 1; }
+            100% { transform: translateY(300px) rotate(360deg); opacity: 0; }
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="card" class="card">
+        <div class="front">Happy Birthday!</div>
+        <div class="back">Hey Big head, you just completed another trip around the sun! <br> You are such an inspiring and wonderful sister. <br> 
+        I don't usually give you credit but you really do deserve every last bit of it. You're supportive, confident, creative, bold and so much more! <br> 
+        I'm stopping there because I don't want your head to get any bigger. All jokes aside I'm so grateful for you and love you more than my words can describe. <br>
+        I'm really proud of you for stepping up and starting to appreciate you more as well as explore your passions and interests, it's been a blessing to witness it all. <br>
+        And I can't wait to see what's next in store for you this season. Thank you for being you and always working towards the best you that you can be. <br>
+        alors encore une fois joyeux anniversaire mon étoile!<br> Love Lisa and the Fam aka Pops, Mom & Martha :D </div>
+    </div>
+
+    <!-- Balloons -->
+    <div class="balloon red"></div>
+    <div class="balloon white"></div>
+    <div class="balloon pink"></div>
+    
+    <div class="balloon red left"></div>
+    <div class="balloon white left"></div>
+    <div class="balloon pink left"></div>
+ 
+    <!-- Confetti -->
+    <div class="confetti" style="left: 10%;"></div>
+    <div class="confetti" style="left: 20%; background-color: yellow;"></div>
+    <div class="confetti" style="left: 30%; background-color: black;"></div>
+    <div class="confetti" style="left: 40%; background-color: white;"></div>
+    <div class="confetti" style="left: 50%; background-color: black;"></div>
+    <div class="confetti" style="left: 60%; background-color: yellow;"></div>
+    <div class="confetti" style="left: 70%; background-color: black;"></div>
+    <div class="confetti" style="left: 80%; background-color: white;"></div>
+
+    <script>
+        const card = document.getElementById('card');
+
+        card.addEventListener('click', () => {
+            card.style.transform = 'rotateY(180deg)'; // Flip the card open vertically
+        });
+    </script>
+</body>
+</html>
